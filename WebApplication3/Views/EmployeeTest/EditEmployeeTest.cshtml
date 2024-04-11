@@ -1,0 +1,18 @@
+﻿@model WebApplication3.Controllers.Class1 
+@{
+    ViewData["Title"] = "EditEmployeeTest";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Api ile Personel Güncelleme</h1>
+
+<form method="post">
+
+    <label>ID</label>
+    @Html.TextAreaFor(x => x.ID, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    @Html.TextAreaFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success"> Güncelle</button>
+</form> 

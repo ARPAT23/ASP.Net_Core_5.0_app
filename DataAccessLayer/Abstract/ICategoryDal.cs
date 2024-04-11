@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICategorytDal : IGenericDal<Category>
+    public interface ICategoryDal : IGenericDal<Category>
     {
         Category GetByID(int id);
     }

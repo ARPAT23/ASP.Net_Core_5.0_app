@@ -1,0 +1,135 @@
+﻿﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor httpContextaccessor;
+@{
+    Layout = null;
+    var thema = "";
+    if (httpContextaccessor.HttpContext.Request.Cookies["thema"] != null)
+    {
+        thema = httpContextaccessor.HttpContext.Request.Cookies["thema"].ToString();
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <link rel="stylesheet" href="~/writer/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/writer/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/writer/assets/css/style.css">
+    <link rel="shortcut icon" href="~/writer/assets/images/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @if (thema == "dark")
+    {
+        <link rel="stylesheet" href="~/writer/assets/css/style-dark.css">
+        <link href="~/writer/assets/css/SweetAlert2-dark.min.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/writer/assets/css/style.css">
+        <link rel="stylesheet" href="~/writer/assets/css/SweetAlert2.min.css" />
+    }
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/coreblogtema/css/thema-toggle.css" rel="stylesheet" />
+    @RenderSection("HeaderSection", false)
+</head>
+<body>
+    <div class="container-scroller">
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="" href="/Dashboard/Index"><img src="~/writer/assets/images/1log.jpg" width="180" height="80" alt="logo" /></a>
+            </div>
+          
+
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+                <div class="search-field d-none d-md-block">
+                    <form class="d-flex align-items-center h-100" action="#">
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                            </div>
+                            <input type="text" class="form-control bg-transparent border-0" placeholder="Ara...">
+                        </div>
+                    </form>
+                </div>
+                <ul class="navbar-nav navbar-nav-right">
+
+                    <a class="dropdown-item" href="/Writer/WriterEditProfile">
+                        <i class=" mdi-cached mr-2 text-success "></i> Profilim
+                    </a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/Login/Logout">
+                        <i class="mdi mdi-power"></i> Çıkış Yap
+                    </a>
+
+
+
+                    <li class="nav-item d-none d-lg-block full-screen-link">
+                        <a class="nav-link">
+                            <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                            <i class="mdi mdi-email-outline"></i>
+                            <span class="count-symbol bg-warning"></span>
+                        </a>
+                        @await Component.InvokeAsync("WriterMessageNotification")
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count-symbol bg-danger"></span>
+                        </a>
+                        @await Component.InvokeAsync("WriterNotification")
+
+                    </li>
+                </ul>
+               
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="container-fluid page-body-wrapper">
+
+            @await Html.PartialAsync("~/Views/Writer/WriterNavbarPartial.cshtml")
+
+            <div class="main-panel">
+                @RenderBody()
+
+            </div>
+        </div>
+
+                @await Html.PartialAsync("~/Views/Writer/WriterFooterPartial.cshtml")
+        <script src="~/writer/assets/vendors/js/vendor.bundle.base.js"></script>
+        <script src="~/writer/assets/js/off-canvas.js"></script>
+        <script src="~/writer/assets/js/hoverable-collapse.js"></script>
+        <script src="~/writer/assets/js/misc.js"></script>
+        <script src="~/js/jquery-validate/jquery.validate.min.js"></script>
+        <script src="~/js/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="~/js/writer-message-notification.js"></script>
+
+        @RenderSection("ScriptSection", false)
+
+        @if (thema == "dark")
+        {
+            <script src="~/writer/assets/js/SweetAlert2-dark.js"></script>
+        }
+        else
+        {
+            <script src="~/writer/assets/js/SweetAlert2.js"></script>
+        }
+
+
+</body>
+</html>

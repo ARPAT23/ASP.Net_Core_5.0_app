@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-	internal class NewsLetterManager : INewsLetterService
+	public class NewsLetterManager : INewsLetterService
 	{
 		INewsLetterDal _newsletterDal;
 
@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
 			_newsletterDal = newsLetterDal;
 		}
 
-		public void AddNewsLetters(NewsLetter newsLetter)
+		public void AddNewsLetter(NewsLetter newsLetter)
 		{
 			_newsletterDal.Insert(newsLetter);
 		}

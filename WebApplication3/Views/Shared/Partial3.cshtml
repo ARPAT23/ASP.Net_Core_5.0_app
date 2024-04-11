@@ -10,101 +10,43 @@
 			</div>
 			<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
 
-				<div class="tech-btm">
-					<h3>Son Gönderiler</h3>
-					<div class="blog-grids row mb-3">
-						<div class="col-md-5 blog-grid-left">
-							<a href="single.html">
-								<img src="~/CoreBlogTema-main/web/images/4.jpg" class="card-img-top img-fluid" alt="">
-							</a>
-						</div>
-						<div class="col-md-7 blog-grid-right">
-
-							<h5>
-								<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-							</h5>
-							<div class="sub-meta">
-								<span>
-									<i class="far fa-clock"></i> 20 Jan, 2018
-								</span>
-							</div>
-						</div>
-
-					</div>
-					<div class="blog-grids row mb-3">
-						<div class="col-md-5 blog-grid-left">
-							<a href="single.html">
-								<img src="~/CoreBlogTema-main/web/images/5.jpg" class="card-img-top img-fluid" alt="">
-							</a>
-						</div>
-						<div class="col-md-7 blog-grid-right">
-
-							<h5>
-								<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-							</h5>
-							<div class="sub-meta">
-								<span>
-									<i class="far fa-clock"></i> 20 Jan, 2018
-								</span>
-							</div>
-						</div>
-
-					</div>
-					<div class="blog-grids row mb-3">
-						<div class="col-md-5 blog-grid-left">
-							<a href="single.html">
-								<img src="~/CoreBlogTema-main/web/images/6.jpg" class="card-img-top img-fluid" alt="">
-							</a>
-						</div>
-						<div class="col-md-7 blog-grid-right">
-
-							<h5>
-								<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-							</h5>
-							<div class="sub-meta">
-								<span>
-									<i class="far fa-clock"></i> 20 Jan, 2018
-								</span>
-							</div>
-						</div>
-
-					</div>
-				</div>
+				@await Component.InvokeAsync("BlogLast3Post")
+				
 			</div>
 			<!-- subscribe -->
-			<div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
-				<h2>Mail Bültenine Abone Olun</h2>
-				@await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml")
-				<!-- //subscribe -->
+			<div class="tech-btm">
+				<h4 class="text-light"> Haber bültenimize kaydolun </h4>
+
+				<h6 class="text-success"> <b> Yazılım, Teknoloji, Sanat ve diğer bloglar... </b>   </h6>
+				<form action="/NewsLetter/SubscribeMail/" method="post">
+					<input type="email" placeholder="Email" required="" name="Mail">
+					<input type="submit" value="Abone Ol">
+				</form>
+
 			</div>
+			
 		</div>
 		<!-- footer -->
 		<div class="footer-cpy text-center">
 			<div class="footer-social">
 				<div class="copyrighttop">
 					<ul>
-						<li class="mx-3">
-							<a class="facebook" href="#">
-								<i class="fab fa-facebook-f"></i>
-								<span>Facebook</span>
-							</a>
-						</li>
 						<li>
-							<a class="facebook" href="#">
-								<i class="fab fa-twitter"></i>
-								<span>Twitter</span>
+							<a class="btn-github" href="https://github.com/ARPAT23">
+								<i class="fab fa-github"></i>
+								<span>Github</span>
 							</a>
 						</li>
 						<li class="mx-3">
-							<a class="facebook" href="#">
-								<i class="fab fa-google-plus-g"></i>
-								<span>Google+</span>
+							<a class="instagram" href="https://www.linkedin.com/in/serdar-d-2610a1208/">
+								<i class="fab fa-linkedin"></i>
+								<span>linkedin</span>
 							</a>
 						</li>
-						<li>
-							<a class="facebook" href="#">
-								<i class="fab fa-pinterest-p"></i>
-								<span>Pinterest</span>
+						<li class="mx-3">
+							<a class="instagram" href="https://www.youtube.com/channel/UCZXmqpZJ3ax5Uzm0pXeVqMg/featured">
+								<i class="fab fa-youtube"></i>
+								<span>youtube</span>
 							</a>
 						</li>
 					</ul>
@@ -112,10 +54,10 @@
 				</div>
 			</div>
 			<div class="w3layouts-agile-copyrightbottom">
-				<p>
+				<h6 class="text-white-50">
 					© @DateTime.Now.Year Weblog. Asp.Net Core 5.0 Proje Kampı  Tüm Hakları Saklıdır | Design by
 					<a href="http://w3layouts.com/">W3layouts</a>
-				</p>
+				</h6>
 
 			</div>
 		</div>

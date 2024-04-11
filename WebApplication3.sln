@@ -4,14 +4,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{D868E6A0-E778-417B-99F5-4AD49FAD9EA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07} = {1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{2774B5DA-25F7-4AE2-BF11-8453AB35AD28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLayer", "EntityLayer\EntityLayer.csproj", "{2774B5DA-25F7-4AE2-BF11-8453AB35AD28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{C37C7344-298E-4FEF-8F33-991DF473C0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{C37C7344-298E-4FEF-8F33-991DF473C0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{548068D5-BA0F-4707-84C5-4ABAA525623B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{548068D5-BA0F-4707-84C5-4ABAA525623B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLayer", "CoreLayer\CoreLayer.csproj", "{59371E62-9722-4C56-ADE3-BB3C369C56AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLayer", "CoreLayer\CoreLayer.csproj", "{59371E62-9722-4C56-ADE3-BB3C369C56AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApiDemo", "BlogApiDemo\BlogApiDemo.csproj", "{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jwt_core_proje", "jwt_core_proje\jwt_core_proje.csproj", "{F29682DE-E76F-4A78-B53E-40F2F16065D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +46,14 @@ Global
 		{59371E62-9722-4C56-ADE3-BB3C369C56AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59371E62-9722-4C56-ADE3-BB3C369C56AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59371E62-9722-4C56-ADE3-BB3C369C56AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF6FFC1-35AD-4E05-92EA-9BD52486DC07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29682DE-E76F-4A78-B53E-40F2F16065D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29682DE-E76F-4A78-B53E-40F2F16065D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29682DE-E76F-4A78-B53E-40F2F16065D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29682DE-E76F-4A78-B53E-40F2F16065D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

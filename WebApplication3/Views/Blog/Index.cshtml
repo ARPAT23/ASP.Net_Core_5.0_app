@@ -5,6 +5,45 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Blog ındex -->
+
+<style>
+	body {
+		background-color: whitesmoke;
+	}
+
+	.ul.pagination {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+	}
+
+	ul.pagination li {
+		display: inline;
+	}
+
+		ul.pagination li a {
+			border: 1px solid #ccc;
+			color: black;
+			float: left;
+			padding: 8px 16px;
+			text-decoration: none;
+			transition: background-color .3s;
+		}
+
+			ul.pagination li a.active {
+			}
+
+			ul.pagination li a:hover:not(.active) {
+				background-color: #ddd;
+			}
+</style>
 
 <section class="main-content-w3layouts-agileits">
 	<div class="container">
@@ -42,17 +81,23 @@
 
 							</ul>
 							<h5 class="card-title">
-									<a href="/Blog/BlogReadAll/@item.BlogID/">@item.BlogTitle</a>
+								<a href="/Blog/BlogReadAll/@item.BlogID/">@item.BlogTitle</a>
 							</h5>
-							<p class="card-text mb-3">@item.BlogContent.Substring(0, item.BlogContent.Substring(0,125).LastIndexOf(" "))...</p>
+							<p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(""))...</p>
 							<a href="/Blog/BlogReadAll/@item.BlogID/" class="btn btn-primary read-m">Devamını Oku</a>
 						</div>
-					</div>
-					<br />
+					    </div>	  
 					}
 				</div>
-				<!--//left-->
 			</div>
+			<br />
 		</div>
+		@* <nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center pagination-lg">
+
+				@* @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page })) 
+
+			</ul>
+		</nav> *@
 	</div>
 </section>

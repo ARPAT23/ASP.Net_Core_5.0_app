@@ -26,10 +26,10 @@ namespace DataAccessLayer.Repositories
 
         }
 
-        public T GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public T GetById(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public List<T> GetListAll()
         {
@@ -56,5 +56,7 @@ namespace DataAccessLayer.Repositories
             c.Update(t);
             c.SaveChanges();
         }
+
+       
     }
 }

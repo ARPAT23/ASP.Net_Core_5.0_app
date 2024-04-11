@@ -1,0 +1,43 @@
+﻿﻿@using WebApplication3.Models
+@model RoleUpdateViewModel
+
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Rol Düzenleme Sayfası</h1>
+
+<form method="post">
+    <div style="display:flex">
+        <div class="form-group" style="width:80px">
+            <label>Role Id</label>
+            <input type="text" name="Id" value="@Model.Id" class="form-control" readonly />
+        </div>
+        <div class="form-group" style="width:120px">
+            <label>Role Başlığı</label>
+            <input type="text" name="Name" value="@Model.Name" class="form-control" />
+        </div>
+    </div>
+
+    <button class="btn btn-success">Rolü Güncelle</button>
+</form>
+<br />
+<h3>Admin rolüne sahip kullanıcılar</h3>
+<table class="table table-bordered" style="width:30%">
+    <tr>
+        <th>Ad Soyad</th>
+        <th>Kullanıcı Adı</th>
+        <th>Kullanıcı Rollerine Git</th>
+    </tr>
+    @foreach (var item in ViewBag.kullan)
+    {
+        <tr>
+            <td>@item.NameSurname</td>
+            <td>@item.UserName</td>
+            <td><a href="/Admin/AdminRole/AssignRole/@item.Id/">Düzenle</a></td>
+        </tr>
+    }
+
+</table>
+

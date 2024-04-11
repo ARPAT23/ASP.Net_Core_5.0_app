@@ -1,6 +1,11 @@
+using DataAccessLayer.Concrete;
+
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
@@ -25,11 +30,17 @@ namespace WebApplication3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>(x =>
+            {
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequireUppercase = false;
+
+            }).AddEntityFrameworkStores<Context>();
+
+            //services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddSession();
-
-
 
 
             services.AddMvc(config =>
@@ -41,6 +52,24 @@ namespace WebApplication3
 
 
             });
+
+            services.AddMvc();
+            services.AddAuthentication(
+                CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x =>
+                {
+                    x.LoginPath = "/login/index";
+                });
+            services.ConfigureApplicationCookie(options =>
+            {
+                //Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(150);
+                options.AccessDeniedPath = new PathString("/Login/AccesDenied");
+                options.LoginPath = "/Login/Index";
+                options.SlidingExpiration = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,12 +87,12 @@ namespace WebApplication3
             }
 
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
-
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseSession();
+
+
+            app.UseAuthentication();
 
             app.UseRouting();
 
@@ -71,7 +100,13 @@ namespace WebApplication3
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
+                   endpoints.MapControllerRoute(
+                   name: "areas",
+                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+
+                    endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

@@ -9,3 +9,4 @@ C:\Users\USER\source\repos\WebApplication3\EntityLayer\obj\Debug\net5.0\EntityLa
 C:\Users\USER\source\repos\WebApplication3\EntityLayer\obj\Debug\net5.0\refint\EntityLayer.dll
 C:\Users\USER\source\repos\WebApplication3\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
 C:\Users\USER\source\repos\WebApplication3\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll
+C:\Users\USER\source\repos\WebApplication3\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.AssemblyReference.cache

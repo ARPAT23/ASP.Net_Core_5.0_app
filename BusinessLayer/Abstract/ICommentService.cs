@@ -9,12 +9,8 @@ namespace BusinessLayer.Abstract
 {
 	public interface ICommentService
 	{
-		void CommandAdd(Command command);
-		//void CategoryDelete(Category category);
-		//void CategoryUpdate(Category category);
+		
+        List<Command> GetCommentWithBlog();
 
-		List<Command> GetList(int id);
-		//Category GetById(int id);
-
-	}
+    }
 }
